@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for a blog application using Express.js and MongoDB.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1",
+    "express-rate-limit": "^6.7.0",
+    "express-session": "^1.18.2",
+    "google-auth-library": "^9.0.0",
+    "helmet": "^6.1.5",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb-memory-server": "^10.2.0",
+    "mongoose": "^5.10.9",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "author": "Your Name",
+  "license": "ISC"
+}

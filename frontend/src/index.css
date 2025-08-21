@@ -1,0 +1,42 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Add Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif; /* This sets Inter as the primary font */
+  margin: 0; /* Good to reset default browser margin */
+  -webkit-font-smoothing: antialiased; /* Improves font rendering on macOS */
+  -moz-osx-font-smoothing: grayscale; /* Improves font rendering on Firefox */
+  background-color: #f8fafc; /* light */
+  color: #0f172a; /* slate-900 */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+code {
+  font-family: source-code, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; /* This is fine for code blocks */
+}
+
+/* Card surface */
+.surface-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08); /* slate-900 at 8% */
+  backdrop-filter: blur(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* Landing page specific styles */
+.landing-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Ensure no scrolling on landing page */
+body.landing-view {
+  overflow: hidden;
+}
