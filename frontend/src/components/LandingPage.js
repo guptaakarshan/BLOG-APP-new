@@ -41,7 +41,7 @@ const LandingPage = ({ onStart }) => {
 
       {/* Footer Section */}
       <footer className="relative z-10 py-4 text-center text-slate-300 text-sm">
-        Made by Akarshan
+        © 2025 Blog App. All rights reserved. | Built by Akarshan Gupta
       </footer>
     </div>
   );

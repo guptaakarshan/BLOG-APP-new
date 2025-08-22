@@ -68,7 +68,7 @@ const PostViewPage = () => {
 			</main>
 
 			<footer className="bg-slate-800 border-t border-slate-700 py-6 text-center text-slate-400">
-				Made by Akarshan
+				© 2025 Blog App. All rights reserved. | Built by Akarshan Gupta
 			</footer>
 		</div>
 	);

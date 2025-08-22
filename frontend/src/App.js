@@ -609,7 +609,7 @@ const AppContent = () => {
       {/* Footer Section */}
       {currentView !== "landing" && (
         <footer className="mt-10 py-4 text-center text-slate-400 text-sm">
-          Made by Akarshan
+          © 2025 Blog App. All rights reserved. | Built by Akarshan Gupta
         </footer>
       )}
 
