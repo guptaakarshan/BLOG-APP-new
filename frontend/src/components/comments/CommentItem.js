@@ -18,7 +18,7 @@ const CommentItem = ({
   const [editContent, setEditContent] = useState(comment.content);
   const { isAuthenticated } = useAuth();
 
-  const isOwner = currentUser && comment.author.id === currentUser.id;
+  const isOwner = currentUser && comment.author._id === currentUser._id;
   const isAdmin = currentUser && currentUser.role === "admin";
   const canModify = isOwner || isAdmin;
 
@@ -29,7 +29,7 @@ const CommentItem = ({
 
   const handleSaveEdit = async () => {
     if (editContent.trim() && editContent !== comment.content) {
-      await onUpdate(comment.id, editContent);
+      await onUpdate(comment._id, editContent);
     }
     setIsEditing(false);
   };
@@ -59,7 +59,7 @@ const CommentItem = ({
 
     if (reason && ["1", "2", "3", "4"].includes(reason)) {
       const selectedReason = reasons[parseInt(reason) - 1];
-      onReport(comment.id, selectedReason);
+      onReport(comment._id, selectedReason);
     }
   };
 
@@ -228,7 +228,7 @@ const CommentItem = ({
             onSubmit={handleReplySubmit}
             onCancel={() => setIsReplying(false)}
             placeholder={`Reply to ${comment.author.username}...`}
-            parentCommentId={comment.id}
+            parentCommentId={comment._id}
           />
         </div>
       )}
@@ -248,7 +248,7 @@ const CommentItem = ({
             <div className="space-y-3 ml-6 border-l-2 border-slate-600 pl-4">
               {comment.replies.map((reply) => (
                 <CommentItem
-                  key={reply.id}
+                  key={reply._id}
                   comment={reply}
                   currentUser={currentUser}
                   onUpdate={onUpdate}
