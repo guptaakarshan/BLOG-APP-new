@@ -120,27 +120,6 @@ const CommentSection = ({ postId }) => {
       toast.error("Failed to report comment");
     }
   };
-  const handleCommentReply = async (parentCommentId, replyData) => {
-  try {
-    const response = await axios.post("/api/comments", {
-      content: replyData.content,
-      postId,
-      parentCommentId,  
-    });
-
-    if (response.data.comment.status === "pending") {
-      toast.success("Reply submitted and awaiting moderation");
-    } else {
-      toast.success("Reply posted successfully");
-    }
-
-    fetchComments();
-  } catch (error) {
-    console.error("Error posting reply:", error);
-    toast.error("Failed to post reply");
-  }
-};
-
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -217,7 +196,7 @@ const CommentSection = ({ postId }) => {
         <div className="space-y-6">
           {comments.map((comment) => (
             <CommentItem
-              key={comment._id}
+              key={comment.id}
               comment={comment}
               currentUser={user}
               onUpdate={handleCommentUpdate}
@@ -225,7 +204,10 @@ const CommentSection = ({ postId }) => {
               onLike={handleCommentLike}
               onDislike={handleCommentDislike}
               onReport={handleCommentReport}
-              onReply={handleCommentReply}
+              onReply={(parentCommentId) => {
+                setShowCommentForm(true);
+                // You can implement a way to pre-fill the form with reply context
+              }}
             />
           ))}
         </div>

@@ -44,7 +44,8 @@ const CommentItem = ({
   };
 
   const handleReplySubmit = async (replyData) => {
-    await onReply(comment._id, replyData);
+    // This would need to be implemented in the parent component
+    // to handle nested replies properly
     setIsReplying(false);
   };
 
@@ -255,7 +256,7 @@ const CommentItem = ({
                   onLike={onLike}
                   onDislike={onDislike}
                   onReport={onReport}
-                  onReply={handleCommentReply}
+                  onReply={onReply}
                 />
               ))}
             </div>
