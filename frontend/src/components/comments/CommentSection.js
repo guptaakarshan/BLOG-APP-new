@@ -23,7 +23,7 @@ const CommentSection = ({ postId }) => {
   const fetchComments = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`/api/comments/post/${postId}`, {
+  const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/comments/post/${postId}`, {
         params: {
           page: currentPage,
           limit: 10,
@@ -43,7 +43,7 @@ const CommentSection = ({ postId }) => {
 
   const handleCommentSubmit = async (commentData) => {
     try {
-      const response = await axios.post("/api/comments", {
+  const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/comments`, {
         content: commentData.content,
         postId: postId,
         parentCommentId: commentData.parentCommentId || null,
@@ -67,7 +67,7 @@ const CommentSection = ({ postId }) => {
 
   const handleCommentUpdate = async (commentId, content) => {
     try {
-      await axios.put(`/api/comments/${commentId}`, { content });
+  await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${commentId}`, { content });
       toast.success("Comment updated successfully");
       fetchComments();
     } catch (error) {
@@ -82,7 +82,7 @@ const CommentSection = ({ postId }) => {
     }
 
     try {
-      await axios.delete(`/api/comments/${commentId}`);
+  await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${commentId}`);
       toast.success("Comment deleted successfully");
       fetchComments();
     } catch (error) {
@@ -93,7 +93,7 @@ const CommentSection = ({ postId }) => {
 
   const handleCommentLike = async (commentId) => {
     try {
-      const response = await axios.post(`/api/comments/${commentId}/like`);
+  const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${commentId}/like`);
       fetchComments(); // Refresh to show updated like count
     } catch (error) {
       console.error("Error liking comment:", error);
@@ -103,7 +103,7 @@ const CommentSection = ({ postId }) => {
 
   const handleCommentDislike = async (commentId) => {
     try {
-      const response = await axios.post(`/api/comments/${commentId}/dislike`);
+  const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${commentId}/dislike`);
       fetchComments(); // Refresh to show updated dislike count
     } catch (error) {
       console.error("Error disliking comment:", error);
@@ -113,7 +113,7 @@ const CommentSection = ({ postId }) => {
 
   const handleCommentReport = async (commentId, reason) => {
     try {
-      await axios.post(`/api/comments/${commentId}/report`, { reason });
+  await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/comments/${commentId}/report`, { reason });
       toast.success("Comment reported successfully");
     } catch (error) {
       console.error("Error reporting comment:", error);

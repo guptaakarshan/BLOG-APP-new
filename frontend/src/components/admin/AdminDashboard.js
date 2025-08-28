@@ -13,7 +13,7 @@ const AdminDashboard = () => {
             setIsLoading(true);
             setError(null);
             try {
-                const baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5001';
+                const baseURL = process.env.REACT_APP_API_BASE_URL;
                 const res = await axios.get(`${baseURL}/api/admin/post-authors`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`

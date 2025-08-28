@@ -12,7 +12,7 @@ const PostViewPage = () => {
 		const fetchPost = async () => {
 			try {
 				setLoading(true);
-				const { data } = await axios.get(`/api/posts/${id}`);
+				const { data } = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/posts/${id}`);
 				setPost(data);
 			} catch (err) {
 				setError('Failed to load post.');

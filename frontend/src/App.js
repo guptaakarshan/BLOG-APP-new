@@ -16,7 +16,7 @@ import PostViewPage from "./components/PostViewPage";
 import AdminDashboard from "./components/admin/AdminDashboard";
 
 // Base URL for our backend API
-const API_BASE_URL = `${process.env.REACT_APP_API_BASE_URL || 'http://localhost:5001'}/api/posts`;
+const API_BASE_URL = `${process.env.REACT_APP_API_BASE_URL}/api/posts`;
 
 // Protected Route Component
 const ProtectedRoute = ({ children, requireAdmin = false }) => {
