@@ -24,7 +24,7 @@ Backend: Node.js, Express.js, MongoDB, Mongoose
 
 Authentication: Google Identity Services (OAuth 2.0)
 
-Deployment: Vercel (Frontend) & Render (Backend)
+Deployment: Vercel
 
 📂 Project Structure
 BLOG-APP-new/
